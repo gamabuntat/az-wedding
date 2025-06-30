@@ -2,30 +2,427 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/az-wedding/img/ssshape.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Huninn&display=swap"
-      rel="stylesheet"
-    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&family=Neucha&display=block"
       rel="stylesheet"
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" crossorigin href="/az-wedding/fonts/ARCO.ttf" as="font" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Neucha&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/az-wedding/img/zhenya_min_mini.webp"
+      as="image"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      href="/az-wedding/img/alina_min_mini.webp"
+      as="image"
+      type="image/webp"
     />
 
     <title>Алина+Женя</title>
+
+    <style>
+      @font-face {
+        font-family: "arco";
+        src: url("/az-wedding/fonts/ARCO.ttf");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @keyframes heartbeat {
+        0% {
+          transform: scale(0.75);
+        }
+        20% {
+          transform: scale(1);
+        }
+        40% {
+          transform: scale(0.75);
+        }
+        60% {
+          transform: scale(1);
+        }
+        80% {
+          transform: scale(0.75);
+        }
+        100% {
+          transform: scale(0.75);
+        }
+      }
+
+      :root {
+        --color-background: oklch(0.76 0.04 141.91);
+        --color-primary: oklch(0.93 0.04 3.48);
+        --color-text: oklch(0.29 0.07 141.59);
+
+        font-family:
+          "Bellota Text", system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-weight: bold;
+
+        color-scheme: light;
+
+        color: var(--color-text);
+        background-color: var(--color-background);
+
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .text-alt {
+        font-family: "arco", system-ui, Avenir, Helvetica, Arial, sans-serif;
+      }
+      .text-alert {
+        font-family: "Neucha", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      dl,
+      dd,
+      ul {
+        margin: 0;
+      }
+
+      input,
+      select,
+      button {
+        font-family:
+          "Bellota Text", system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      button {
+        padding: 0.6em 1.2em;
+        font-size: 1em;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: oklch(0.76 0.12 14.47);
+        color: var(--text);
+      }
+      button:focus,
+      button:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+      }
+
+      a {
+        color: var(--color-text);
+        text-decoration: underline;
+        text-decoration-style: dashed;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        min-height: 100dvh;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        width: 100%;
+      }
+      main > section {
+        display: flex;
+        flex-direction: column;
+        gap: 1lh;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      p {
+        max-width: 30ch;
+        text-wrap: balance;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 3.2em;
+        line-height: 1;
+        color: var(--color-primary);
+        text-align: center;
+        text-stroke: 2px black;
+        -webkit-text-stroke: 2px var(--color-text);
+      }
+
+      .photo {
+        object-fit: contain;
+      }
+      .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .photo-container {
+        display: flex;
+        width: 100%;
+        max-width: 40ch;
+        aspect-ratio: 365 / 275;
+      }
+      .photo-container > * {
+        flex: 1;
+        display: flex;
+      }
+      .photo-container img[src*="zhenya"] {
+        translate: 28% 10%;
+        scale: 1.4;
+        width: 100%;
+        aspect-ratio: 25 / 31;
+      }
+      .photo-container img[src*="alina"] {
+        translate: -10% 10%;
+        scale: 1.32;
+        width: 100%;
+        aspect-ratio: 497 / 729;
+      }
+
+      .abstract {
+        max-width: 40ch;
+      }
+
+      .icon-heart-wrapper {
+        position: absolute;
+        top: 0;
+        translate: 10% -50%;
+        z-index: -1;
+        rotate: 180deg;
+      }
+
+      .waved-text {
+        position: absolute;
+        width: 100%;
+      }
+
+      .heart-emoji {
+        font-size: 4rem;
+        animation: heartbeat 1s infinite;
+      }
+
+      .heroes {
+        align-self: center;
+        padding: 4rem 0.2em 0 0.2rem;
+        width: 90vw;
+        max-width: 60ch;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        flex: 1;
+        z-index: 2;
+      }
+      .heroes__title-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 30ch;
+      }
+
+      .float_1 {
+        position: relative;
+        place-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .float_1 svg {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+      }
+
+      .prelude {
+        z-index: 2;
+        translate: 0 -1.8lh;
+        gap: 2lh;
+      }
+      .prelude .abstract {
+        translate: 0 -32%;
+      }
+      .prelude p {
+        margin: 0;
+      }
+      .prelude time {
+        margin-top: 0.6em;
+        font-size: 3rem;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+      }
+      .prelude__title-wrapper svg {
+        translate: 0 -34%;
+        height: 6em;
+      }
+      .prelude__title-wrapper h2 {
+        font-size: 2.2rem;
+      }
+      .prelude__thesis-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .prelude__main-thesis {
+        margin-top: 1em;
+        font-size: 1.2rem;
+      }
+
+      .at-what-time {
+        position: relative;
+        width: 100%;
+        align-self: center;
+      }
+      .at-what-time .clock {
+        position: absolute;
+        width: 4rem;
+        left: 12%;
+      }
+      .at-what-time .float_1 {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      .at-what-time__arrow {
+        translate: -12% 20%;
+      }
+      .at-what-time h2 {
+        text-align: center;
+      }
+      .at-what-time dl {
+        align-self: center;
+        padding: 0.4em;
+        max-width: 30ch;
+        border: dotted 0.1rem var(--color-text);
+      }
+      .at-what-time dt {
+        font-size: 2rem;
+      }
+      .at-what-time dt ~ dt {
+        margin-top: 0.6em;
+      }
+      .at-what-time .loc {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        translate: 0% 100%;
+        z-index: 1;
+        width: 100px;
+      }
+
+      .some-details {
+        align-self: center;
+        width: 100%;
+      }
+      .some-details .wowvine {
+        position: absolute;
+        width: 5rem;
+        right: 10%;
+        z-index: -1;
+        rotate: -20deg;
+      }
+      .some-details ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2em;
+
+        list-style: arabic-indic;
+      }
+      .some-details h3 {
+        margin-bottom: 0.4em;
+      }
+      .some-details .abstract {
+        width: 100%;
+        height: 110vh;
+      }
+      #icon-some-details-1 {
+        top: -50%;
+      }
+      #icon-some-details-2 path {
+        translate: 20% 20%;
+      }
+
+      @keyframes fly {
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .dress-code p {
+        align-self: center;
+      }
+      .dress-code h2 {
+        text-decoration: line-through;
+      }
+
+      .check-in {
+        align-self: center;
+      }
+      .check-in form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8em;
+      }
+      .check-in label {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .see-you {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .see-you__photo-wrapper {
+        position: relative;
+        display: flex;
+        width: 78vw;
+        max-width: 40ch;
+      }
+      .see-you__photo-wrapper > img {
+        position: absolute;
+        max-width: 100%;
+        inset: 0;
+      }
+      .see-you .fireworks {
+        translate: 0 -40%;
+        z-index: -1;
+      }
+      .see-you .heart-mini {
+        translate: 4% -16%;
+        scale: 0.9;
+        z-index: -1;
+      }
+    </style>
+    <script type="module" crossorigin src="/az-wedding/assets/index-BDeQkWRB.js"></script>
   </head>
   <body>
     <template id="i1">
@@ -39,31 +436,6 @@
           <path
             d="M47.8 -31.4C63.8 33.9 80.1 83.3 33 139.8C-14.1 196.3 -124.6 260 -192.2 221.1C-259.8 182.3 -284.4 40.9 -245.2 -56.2C-206.1 -153.3 -103 -206.1 -43.6 -192C15.9 -177.8 31.7 -96.6 47.8 -31.4"
           />
-        </g>
-      </svg>
-    </template>
-
-    <template id="i2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 400 400"
-        version="1.1"
-      >
-        <g transform="translate(276.77970501460555 113.3336560043527)">
-          <path
-            d="M77.9 25.5C112.7 81.7 160.7 184.5 120.8 228C80.9 271.6 -46.8 255.9 -145 187.5C-243.2 119 -311.8 -2.3 -282.7 -50.7C-253.6 -99.1 -126.8 -74.5 -52.6 -57.4C21.6 -40.3 43.1 -30.7 77.9 25.5"
-          />
-        </g>
-      </svg>
-    </template>
-
-    <template id="i3">
-      <svg viewBox="0 0 400 400">
-        <g transform="translate(301.0020527303709 220.27494185255884)">
-          <path
-            d="M46.3 -18.7C60.9 29.9 74.2 75.2 54.5 94.1C34.7 113 -18.2 105.4 -96.2 64.8C-174.2 24.1 -277.3 -49.8 -265.5 -94.6C-253.6 -139.4 -126.8 -155.2 -55.5 -137.2C15.9 -119.2 31.7 -67.3 46.3 -18.7"
-          ></path>
         </g>
       </svg>
     </template>
@@ -90,7 +462,7 @@
           </svg>
         </div>
 
-        <div>
+        <div class="waved-text">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -126,10 +498,15 @@
           <div class="content">
             <div class="photo-container">
               <div>
-                <img class="photo" src="/img/zhenya_mini.webp" alt="" />
+                <img
+                  width="100%"
+                  class="photo"
+                  src="/az-wedding/img/zhenya_min_mini.webp"
+                  alt=""
+                />
               </div>
               <div>
-                <img class="photo" src="/img/alina_mini.webp" alt="" />
+                <img class="photo" src="/az-wedding/img/alina_min_mini.webp" alt="" />
               </div>
             </div>
           </div>
@@ -158,8 +535,8 @@
 
         <div class="prelude__thesis-wrapper">
           <p class="prelude__main-thesis">
-            мы вас очень любим! поэтому пригшаем вас на нашу свадьбу, которая
-            состоиться:
+            мы вас очень любим! поэтому приглашаем вас на нашу свадьбу, которая
+            состоится:
           </p>
 
           <time class="text-alert" datetime="2025-08-30">30.08.25</time>
@@ -167,7 +544,7 @@
       </section>
 
       <section class="at-what-time">
-        <img class="clock" src="/img/clock.png" alt="">
+        <img class="clock" src="/az-wedding/img/clock.webp" alt="" />
 
         <div class="float_1">
           <svg
@@ -283,7 +660,7 @@
           ></path>
         </svg>
 
-        <img class="wowvine" src="/img/vine.png" alt="">
+        <img class="wowvine" src="/az-wedding/img/vine.webp" alt="" />
 
         <ul>
           <li>
@@ -308,7 +685,7 @@
         <h2 class="text-alert">Дресс-код</h2>
         <p>
           На нашей свадьбе нет ограничений по дресс коду. Были бы признательны
-          если вы откажитесь от слишком ярких тонов и total black.
+          если вы откажетесь от слишком ярких тонов и total black.
         </p>
       </section>
 
@@ -317,11 +694,10 @@
 
         <form id="questionnaire">
           <label>
-            Ваше имя
+            Ваши фамилия и имя
             <input
               name="name"
               autocomplete="off"
-              placeholder="Имя"
               type="text"
             />
           </label>
@@ -331,6 +707,7 @@
             <select id="" name="alcho-list">
               <option value="вино">Вино</option>
               <option value="крепкое">Крепкое</option>
+              <option value="не пью" selected>Не пью алкоголь</option>
               <option value="не важно" selected>Всё что горит</option>
             </select>
           </label>
@@ -348,12 +725,11 @@
             src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzliaXh5cW9lcnZ6bGl0a2hkdHJrejRoc2V0c3U0b3FhcWl5YnF1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/T6lGKEB3FK6SRZhGQX/giphy.gif"
             alt=""
           />
-          <img src="/img/alina_and_zhenya_outside.webp" alt="" />
-          <img class="heart-mini" src="/img/heart_mini.webp" alt="" />
+          <img src="/az-wedding/img/alina_and_zhenya_outside.webp" alt="" />
+          <img class="heart-mini" src="/az-wedding/img/heart_mini.webp" alt="" />
         </div>
       </footer>
     </main>
 
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
