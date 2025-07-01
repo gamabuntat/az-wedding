@@ -8,20 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&family=Neucha&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&family=Neucha&display=block"
       rel="stylesheet"
     />
 
     <link rel="preload" crossorigin href="/fonts/ARCO.ttf" as="font" />
+
     <link
       rel="preload"
-      href="/img/zhenya_mini_mini.webp"
+      href="/img/zhenya_min_mini.webp"
       as="image"
       type="image/webp"
     />
     <link
       rel="preload"
-      href="/img/alina_mini.webp"
+      href="/img/alina_min_mini.webp"
       as="image"
       type="image/webp"
     />
@@ -34,7 +35,7 @@
         src: url("/fonts/ARCO.ttf");
         font-weight: normal;
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
 
       @keyframes heartbeat {
@@ -111,7 +112,6 @@
       }
 
       button {
-        border: 1px solid transparent;
         padding: 0.6em 1.2em;
         font-size: 1em;
         font-weight: 500;
@@ -163,6 +163,7 @@
       img {
         display: block;
         max-width: 100%;
+        width: 100%;
       }
 
       h1 {
@@ -177,9 +178,16 @@
       .photo {
         object-fit: contain;
       }
+      .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
       .photo-container {
         display: flex;
+        width: 100%;
         max-width: 40ch;
+        aspect-ratio: 365 / 275;
       }
       .photo-container > * {
         flex: 1;
@@ -206,6 +214,11 @@
         rotate: 180deg;
       }
 
+      .waved-text {
+        position: absolute;
+        width: 100%;
+      }
+
       .heart-emoji {
         font-size: 4rem;
         animation: heartbeat 1s infinite;
@@ -213,7 +226,7 @@
 
       .heroes {
         margin: 0 auto;
-        padding: 0 0.2em;
+        padding: 4rem 0.2em 0 0.2rem;
         width: min(90vw, 60ch);
         display: flex;
         flex-direction: column;
@@ -243,6 +256,11 @@
         z-index: -1;
       }
 
+      .prelude {
+        z-index: 2;
+        translate: 0 -2lh;
+        gap: 2lh;
+      }
       .prelude .abstract {
         translate: 0 -32%;
       }
@@ -255,13 +273,9 @@
         text-decoration: underline;
         text-decoration-thickness: 2px;
       }
-      .prelude__title-wrapper {
-        z-index: 2;
-        translate: 0 -60%;
-      }
       .prelude__title-wrapper svg {
         translate: 0 -34%;
-        height: 7em;
+        height: 6em;
       }
       .prelude__title-wrapper h2 {
         font-size: 2.2rem;
@@ -284,7 +298,7 @@
       }
       .at-what-time .clock {
         position: absolute;
-        width: 5rem;
+        width: 4rem;
         left: 12%;
       }
       .at-what-time .float_1 {
@@ -325,7 +339,7 @@
       }
       .some-details .wowvine {
         position: absolute;
-        width: 6rem;
+        width: 5rem;
         right: 10%;
         z-index: -1;
         rotate: -20deg;
@@ -442,7 +456,7 @@
           </svg>
         </div>
 
-        <div>
+        <div class="waved-text">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -478,10 +492,10 @@
           <div class="content">
             <div class="photo-container">
               <div>
-                <img class="photo" src="/img/zhenya_mini_mini.webp" alt="" />
+                <img class="photo" src="/img/zhenya_min_mini.webp" alt="" />
               </div>
               <div>
-                <img class="photo" src="/img/alina_mini.webp" alt="" />
+                <img class="photo" src="/img/alina_min_mini.webp" alt="" />
               </div>
             </div>
           </div>
@@ -510,8 +524,8 @@
 
         <div class="prelude__thesis-wrapper">
           <p class="prelude__main-thesis">
-            мы вас очень любим! поэтому пригшаем вас на нашу свадьбу, которая
-            состоиться:
+            мы вас очень любим! поэтому приглашаем вас на нашу свадьбу, которая
+            состоится:
           </p>
 
           <time class="text-alert" datetime="2025-08-30">30.08.25</time>
@@ -519,7 +533,7 @@
       </section>
 
       <section class="at-what-time">
-        <img class="clock" src="/img/clock.png" alt="" />
+        <img class="clock" src="/img/clock.webp" alt="" />
 
         <div class="float_1">
           <svg
@@ -635,7 +649,7 @@
           ></path>
         </svg>
 
-        <img class="wowvine" src="/img/vine.png" alt="" />
+        <img class="wowvine" src="/img/vine.webp" alt="" />
 
         <ul>
           <li>
@@ -660,7 +674,7 @@
         <h2 class="text-alert">Дресс-код</h2>
         <p>
           На нашей свадьбе нет ограничений по дресс коду. Были бы признательны
-          если вы откажитесь от слишком ярких тонов и total black.
+          если вы откажетесь от слишком ярких тонов и total black.
         </p>
       </section>
 
@@ -683,6 +697,7 @@
             <select id="" name="alcho-list">
               <option value="вино">Вино</option>
               <option value="крепкое">Крепкое</option>
+              <option value="не пью" selected>Не пью алкоголь</option>
               <option value="не важно" selected>Всё что горит</option>
             </select>
           </label>
