@@ -194,12 +194,16 @@
         display: flex;
       }
       .photo-container img[src*="zhenya"] {
-        translate: 28% 0;
+        translate: 28% 10%;
         scale: 1.4;
+        width: 100%;
+        aspect-ratio: 25 / 31;
       }
       .photo-container img[src*="alina"] {
-        translate: -20% 0;
-        scale: 1.4;
+        translate: -10% 10%;
+        scale: 1.32;
+        width: 100%;
+        aspect-ratio: 497 / 729;
       }
 
       .abstract {
@@ -225,9 +229,10 @@
       }
 
       .heroes {
-        margin: 0 auto;
+        align-self: center;
         padding: 4rem 0.2em 0 0.2rem;
-        width: min(90vw, 60ch);
+        width: 90vw;
+        max-width: 60ch;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -258,7 +263,7 @@
 
       .prelude {
         z-index: 2;
-        translate: 0 -2lh;
+        translate: 0 -1.8lh;
         gap: 2lh;
       }
       .prelude .abstract {
@@ -492,7 +497,7 @@
           <div class="content">
             <div class="photo-container">
               <div>
-                <img class="photo" src="/img/zhenya_min_mini.webp" alt="" />
+                <img width="100%" class="photo" src="/img/zhenya_min_mini.webp" alt="" />
               </div>
               <div>
                 <img class="photo" src="/img/alina_min_mini.webp" alt="" />
