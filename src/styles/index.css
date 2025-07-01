@@ -1,22 +1,9 @@
 @font-face {
-  font-family: "stoneberry";
-  src: url("/fonts/stoneberry.otf");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
   font-family: "arco";
   src: url("/fonts/ARCO.ttf");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
-@font-face {
-  font-family: "Everlasting";
-  src: url("/fonts/Everlasting.ttf") format("woff2");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @keyframes heartbeat {
@@ -63,7 +50,9 @@
   font-family: "arco", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 .text-alert {
-  font-family: "Neucha", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Neucha", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
@@ -100,6 +89,12 @@ button {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-style: dashed;
 }
 
 body {
@@ -374,10 +369,4 @@ h1 {
   translate: 4% -16%;
   scale: 0.9;
   z-index: -1;
-}
-
-a {
-  color: var(--color-text);
-  text-decoration: underline;
-  text-decoration-style: dashed;
 }
