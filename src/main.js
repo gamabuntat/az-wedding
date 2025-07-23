@@ -49,7 +49,7 @@ createEffect(() => {
 
 const form = document.querySelector("#questionnaire");
 
-const _token = "7375761549:AAHiE9l1u4FOPriXmf7Nz9rAlo4M2DQBinU";
+const _token = "";
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
